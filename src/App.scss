@@ -1,4 +1,4 @@
-.App {
+.Header {
     display: flex;
     flex-direction: row;
     width: 70%;
@@ -6,4 +6,8 @@
     span {
             margin-left: 1rem;
     }
+}
+
+.App {
+    padding: 2rem;
 }
