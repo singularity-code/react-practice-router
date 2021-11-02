@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import About from "./components/About";
 import Main from "./components/Main";
 import Profiles from "./components/Profiles";
@@ -28,10 +28,20 @@ function App() {
           <Link to="/history">History Sample</Link>
         </span>
       </div>
-      <Route path="/" component={Main} exact={true} />
-      <Route path={["/about", "/info"]} component={About} />
-      <Route path="/profiles" component={Profiles} />
-      <Route path="/history" component={History} />
+      <Switch>
+        <Route path="/" component={Main} exact={true} />
+        <Route path={["/about", "/info"]} component={About} />
+        <Route path="/profiles" component={Profiles} />
+        <Route path="/history" component={History} />
+        <Route
+          render={({ location }) => (
+            <div>
+              <h2>This page is not exist</h2>
+              <p>{location.pathname}</p>
+            </div>
+          )}
+        />
+      </Switch>
     </div>
   );
 }
