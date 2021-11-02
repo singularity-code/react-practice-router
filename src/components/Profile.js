@@ -1,4 +1,5 @@
 import React from "react";
+import WithRouter from "./WithRouter";
 
 const data = {
   id1: {
@@ -17,11 +18,16 @@ const Profile = ({ match }) => {
   if (!profile) {
     return <div>NOT FOUND</div>;
   }
-  return <div>
-		<h1>Profile Page</h1>
-		<h3>{username}({profile.name})</h3>
-		<p>{profile.description}</p>
-	</div>;
+  return (
+    <div>
+      <h1>Profile Page</h1>
+      <h3>
+        {username}({profile.name})
+      </h3>
+      <p>{profile.description}</p>
+      <WithRouter></WithRouter>
+    </div>
+  );
 };
 
 export default Profile;
